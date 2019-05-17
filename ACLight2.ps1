@@ -746,9 +746,10 @@ function Start-ACLsAnalysis {
         foreach ($Domain in $DomainList){
             $domainLayerCounter = 1
             Write-Output "`n******************************`nStarting analysis for Domain: $Domain - Layer $domainLayerCounter"
-            $exportCsvFile = $exportCsvFolder
+            $exportCsvFile = "Results_of_"
+            $exportCsvFile += $exportCsvFolder
             $exportCsvFile += $Domain
-            $exportCsvFile += " - Full Output.csv"
+            $exportCsvFile += "_Full_Output.csv"
 
             # calling the ACL analysis function on the specific domain
             Start-domainACLsAnalysis -Full $Full -exportCsvFile $exportCsvFile -Domain $Domain
